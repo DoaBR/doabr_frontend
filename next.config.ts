@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   // Descomente a linha abaixo se o repo não for doabr.github.io
-  // basePath: '/doabr_frontend',
+   basePath: '/doabr_frontend',
 };
 
 export default nextConfig;
