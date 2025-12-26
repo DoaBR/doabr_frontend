@@ -1,7 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: 'export',
+  images: {
+    unoptimized: true,
+  },
+  // Descomente a linha abaixo se o repo não for doabr.github.io
+  // basePath: '/doabr_frontend',
 };
 
 export default nextConfig;
