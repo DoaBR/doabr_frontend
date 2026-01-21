@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "DoaBR - Doações Incentivadas com Dedução no IR",
-  description: "Transforme seu Imposto de Renda em impacto social. Doe para projetos aprovados e deduza até 6% do seu IR. Plataforma segura de doações incentivadas.",
+  title: "cynema.ai - Invista em Cinema e Deduza do IR",
+  description: "Invista em projetos audiovisuais brasileiros e deduza até 6% do seu Imposto de Renda. Filmes, séries, documentários e curtas-metragens com incentivo fiscal.",
 };
 
 export default function RootLayout({
@@ -26,14 +26,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="pt-BR" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <AuthSessionProvider>
           <ThemeProvider
             attribute="class"
-            defaultTheme="system"
+            defaultTheme="dark"
             enableSystem
             disableTransitionOnChange
           >

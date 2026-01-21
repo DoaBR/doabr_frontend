@@ -1,6 +1,6 @@
 "use client";
 
-import { Heart, Menu, X, Recycle } from "lucide-react";
+import { Film, Menu, X, Clapperboard } from "lucide-react";
 import Link from "next/link";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { useSession } from "next-auth/react";
@@ -17,10 +17,13 @@ export const Navbar = () => {
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
             <div className="relative">
-              <Heart className="size-8 text-primary fill-primary" />
-              <Recycle className="size-4 text-green-500 absolute -bottom-1 -right-1" />
+              <Film className="size-8 text-primary" />
+              <Clapperboard className="size-4 text-secondary absolute -bottom-1 -right-1" />
             </div>
-            <span className="text-xl font-bold">DoaBR</span>
+            <span className="text-xl font-bold">
+              <span className="gradient-text">cynema</span>
+              <span className="text-muted-foreground">.ai</span>
+            </span>
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
@@ -55,7 +58,7 @@ export const Navbar = () => {
                 <Button variant="ghost" asChild>
                   <Link href="/auth/sigin">Entrar</Link>
                 </Button>
-                <Button asChild>
+                <Button asChild className="gradient-primary border-0">
                   <Link href="/auth/signup">Cadastrar</Link>
                 </Button>
               </>
@@ -108,7 +111,7 @@ export const Navbar = () => {
                     <Button variant="ghost" asChild>
                       <Link href="/auth/signin">Entrar</Link>
                     </Button>
-                    <Button asChild>
+                    <Button asChild className="gradient-primary border-0">
                       <Link href="/auth/signup">Cadastrar</Link>
                     </Button>
                   </>

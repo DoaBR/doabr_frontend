@@ -3,97 +3,104 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Film, HeartPulse, Trophy, Recycle, Palette, Search } from "lucide-react";
+import { Film, Clapperboard, Tv, Video, Search } from "lucide-react";
 
 const categories = [
   { id: "todos", name: "Todos", icon: null },
-  { id: "audiovisual", name: "Audiovisual", icon: Film },
-  { id: "saude", name: "Saúde", icon: HeartPulse },
-  { id: "esporte", name: "Esporte", icon: Trophy },
-  { id: "reciclagem", name: "Reciclagem", icon: Recycle },
-  { id: "cultura", name: "Cultura", icon: Palette },
+  { id: "filmes", name: "Filmes", icon: Film },
+  { id: "curtas", name: "Curtas", icon: Clapperboard },
+  { id: "series", name: "Séries", icon: Tv },
+  { id: "documentarios", name: "Documentários", icon: Video },
 ];
 
 const projects = [
   {
     id: 1,
-    title: "Documentário sobre Amazônia",
-    category: "audiovisual",
-    description: "Produção de documentário sobre a preservação da floresta amazônica e suas comunidades.",
-    needed: 500000,
-    raised: 380000,
-    proponent: "Produtora Cultural Ltda",
-    law: "Lei Rouanet",
+    title: "A Última Fronteira",
+    category: "filmes",
+    description: "Drama sobre a vida de imigrantes brasileiros na fronteira norte do país. Uma história emocionante de superação e identidade.",
+    needed: 2500000,
+    raised: 1850000,
+    proponent: "Bambu Filmes",
+    law: "Lei do Audiovisual",
+    returns: "Participação de 2% nos lucros",
   },
   {
     id: 2,
-    title: "Instituto de Oncologia Infantil",
-    category: "saude",
-    description: "Ampliação do centro de tratamento oncológico para crianças e adolescentes.",
-    needed: 1200000,
-    raised: 850000,
-    proponent: "Instituto Viver Bem",
-    law: "PRONON",
+    title: "Amazônia Viva",
+    category: "documentarios",
+    description: "Documentário sobre a preservação da floresta amazônica e suas comunidades ribeirinhas tradicionais.",
+    needed: 800000,
+    raised: 620000,
+    proponent: "Produtora Verde Ltda",
+    law: "Lei Rouanet",
+    returns: "Créditos e experiência de set",
   },
   {
     id: 3,
-    title: "Escolinha de Futebol Comunitária",
-    category: "esporte",
-    description: "Projeto esportivo para jovens em situação de vulnerabilidade social.",
-    needed: 250000,
-    raised: 180000,
-    proponent: "Associação Esportiva Unidos",
-    law: "Lei de Incentivo ao Esporte",
+    title: "Conexão",
+    category: "curtas",
+    description: "Curta-metragem experimental sobre a solidão urbana e as conexões humanas na era digital.",
+    needed: 150000,
+    raised: 95000,
+    proponent: "Coletivo Audiovisual SP",
+    law: "Lei do Audiovisual",
+    returns: "Participação de 5% nos lucros",
   },
   {
     id: 4,
-    title: "Reciclagem Sustentável SP",
-    category: "reciclagem",
-    description: "Modernização de cooperativa de reciclagem com equipamentos e capacitação.",
-    needed: 350000,
-    raised: 120000,
-    proponent: "Cooperativa Recicla Mais",
-    law: "Lei de Reciclagem",
+    title: "Crimes do Sertão",
+    category: "series",
+    description: "Série de suspense policial ambientada no sertão nordestino. 8 episódios para streaming.",
+    needed: 4200000,
+    raised: 2800000,
+    proponent: "Nordeste Pictures",
+    law: "Lei do Audiovisual",
+    returns: "Participação de 1.5% nos lucros",
   },
   {
     id: 5,
-    title: "Festival de Teatro Popular",
-    category: "cultura",
-    description: "Realização de festival itinerante de teatro em comunidades periféricas.",
-    needed: 180000,
-    raised: 165000,
-    proponent: "Coletivo Cultural Arte Viva",
+    title: "Vozes da Periferia",
+    category: "documentarios",
+    description: "Série documental sobre artistas e movimentos culturais das periferias brasileiras.",
+    needed: 600000,
+    raised: 450000,
+    proponent: "Favela Filmes",
     law: "Lei Rouanet",
+    returns: "Créditos e pré-estreia exclusiva",
   },
   {
     id: 6,
-    title: "Centro de Reabilitação PcD",
-    category: "saude",
-    description: "Construção de centro de reabilitação para pessoas com deficiência.",
-    needed: 800000,
-    raised: 520000,
-    proponent: "Fundação Incluir",
-    law: "PRONAS/PCD",
+    title: "O Encontro",
+    category: "filmes",
+    description: "Comédia romântica sobre dois desconhecidos que se encontram em uma viagem de trem pelo Brasil.",
+    needed: 1800000,
+    raised: 720000,
+    proponent: "Alegria Produções",
+    law: "Lei do Audiovisual",
+    returns: "Participação de 2.5% nos lucros",
   },
   {
     id: 7,
-    title: "Série Web sobre Cultura Brasileira",
-    category: "audiovisual",
-    description: "Produção de série documental sobre manifestações culturais brasileiras.",
-    needed: 420000,
-    raised: 95000,
-    proponent: "Produtora Raízes Brasil",
-    law: "Lei do Audiovisual",
+    title: "Memórias de Pedra",
+    category: "curtas",
+    description: "Curta de animação stop-motion sobre a história de uma cidade mineira e suas tradições.",
+    needed: 280000,
+    raised: 195000,
+    proponent: "Anima Brasil",
+    law: "Lei Rouanet",
+    returns: "Participação de 3% nos lucros",
   },
   {
     id: 8,
-    title: "Paraolimpíadas Regionais",
-    category: "esporte",
-    description: "Organização de competição paraolímpica regional com 15 modalidades.",
-    needed: 600000,
-    raised: 410000,
-    proponent: "Comitê Paralímpico Regional",
-    law: "Lei de Incentivo ao Esporte",
+    title: "Startup Brasil",
+    category: "series",
+    description: "Série dramática sobre o ecossistema de startups brasileiro. 6 episódios para TV.",
+    needed: 3500000,
+    raised: 2100000,
+    proponent: "TechMedia Produções",
+    law: "Lei do Audiovisual",
+    returns: "Participação de 1% nos lucros",
   },
 ];
 
@@ -104,7 +111,7 @@ export default function ProjetosPage() {
   const filteredProjects = projects.filter((project) => {
     const matchesCategory = selectedCategory === "todos" || project.category === selectedCategory;
     const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         project.description.toLowerCase().includes(searchTerm.toLowerCase());
+      project.description.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesCategory && matchesSearch;
   });
 
@@ -126,10 +133,10 @@ export default function ProjetosPage() {
       <section className="container max-w-7xl px-4 py-12 md:py-20">
         <div className="text-center space-y-4 mb-12">
           <h1 className="text-4xl md:text-5xl font-bold">
-            Projetos Incentivados
+            <span className="gradient-text">Projetos Audiovisuais</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Escolha um projeto aprovado pelos órgãos competentes e faça sua doação dedutível do IR
+            Invista em produções brasileiras aprovadas pela ANCINE e deduza do seu Imposto de Renda
           </p>
         </div>
 
@@ -142,7 +149,7 @@ export default function ProjetosPage() {
               placeholder="Buscar projetos..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 rounded-lg border bg-background"
+              className="w-full pl-10 pr-4 py-3 rounded-lg border bg-background focus:border-primary focus:ring-1 focus:ring-primary transition-all"
             />
           </div>
         </div>
@@ -156,11 +163,10 @@ export default function ProjetosPage() {
               <button
                 key={category.id}
                 onClick={() => setSelectedCategory(category.id)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all ${
-                  isActive
-                    ? "bg-primary text-primary-foreground border-primary"
+                className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all ${isActive
+                    ? "gradient-primary text-primary-foreground border-transparent"
                     : "bg-background hover:border-primary"
-                }`}
+                  }`}
               >
                 {Icon && <Icon className="size-4" />}
                 <span className="font-medium">{category.name}</span>
@@ -176,18 +182,21 @@ export default function ProjetosPage() {
             return (
               <div
                 key={project.id}
-                className="border rounded-lg overflow-hidden hover:shadow-lg transition-all group"
+                className="border rounded-lg overflow-hidden hover:shadow-lg transition-all group hover:border-primary"
               >
                 {/* Project Image Placeholder */}
-                <div className="h-48 bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
+                <div className="h-48 bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center relative overflow-hidden">
                   {categories.find((c) => c.id === project.category)?.icon && (
-                    <div className="p-4 rounded-full bg-background/80">
+                    <div className="p-4 rounded-full bg-background/80 backdrop-blur-sm">
                       {(() => {
                         const Icon = categories.find((c) => c.id === project.category)?.icon;
                         return Icon ? <Icon className="size-12 text-primary" /> : null;
                       })()}
                     </div>
                   )}
+                  <div className="absolute top-3 right-3 bg-accent text-accent-foreground px-2 py-1 rounded-full text-xs font-medium">
+                    {project.returns.split(" ")[0]} {project.returns.split(" ")[1]}
+                  </div>
                 </div>
 
                 <div className="p-6 space-y-4">
@@ -205,9 +214,16 @@ export default function ProjetosPage() {
                   </p>
 
                   {/* Law Badge */}
-                  <div className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">
-                    {project.law}
+                  <div className="flex gap-2">
+                    <div className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium">
+                      {project.law}
+                    </div>
                   </div>
+
+                  {/* Returns */}
+                  <p className="text-sm text-secondary font-medium">
+                    💰 {project.returns}
+                  </p>
 
                   {/* Progress */}
                   <div className="space-y-2">
@@ -221,19 +237,19 @@ export default function ProjetosPage() {
                     </div>
                     <div className="h-2 bg-muted rounded-full overflow-hidden">
                       <div
-                        className="h-full bg-primary transition-all"
+                        className="h-full gradient-primary transition-all"
                         style={{ width: `${progress}%` }}
                       />
                     </div>
                     <p className="text-xs text-muted-foreground text-right">
-                      {progress.toFixed(0)}% arrecadado
+                      {progress.toFixed(0)}% captado
                     </p>
                   </div>
 
                   {/* Action Button */}
-                  <Button asChild className="w-full">
+                  <Button asChild className="w-full gradient-primary border-0">
                     <Link href={`/projetos/${project.id}`}>
-                      Doar Agora
+                      Investir Agora
                     </Link>
                   </Button>
                 </div>
